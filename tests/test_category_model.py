@@ -30,33 +30,31 @@ class TestCategoryModel:
         with pytest.raises(TypeError):
             Category(name, 'test description')
 
-    @pytest.mark.parametrize("name, description", [
-        (10, 'Melhor time do Brasil'),
-        (10.5, 'Melhor time do Brasil'),
-        (False, 'Melhor time do Brasil')
+    @pytest.mark.parametrize("name", [
+        10,
+        10.5,
+        False
     ])
-    def test_name_not_str(self, name, description):
+    def test_name_not_str(self, name):
         with pytest.raises(TypeError):
-            category = Category(name, description)
+            category = Category(name, 'description test')
 
     def test_name_blank_spaces(self):
         with pytest.raises(ValueError):
             category = Category(' ', 'test description')
 
-    def test_name_min_len(self):
+    def test_name_is_name(self):
         name = 'N'
-        description = ''
-        category = Category(name, description)
+        category = Category(name, '')
         assert category.name is name
 
     def test_name_max_len(self):
         with pytest.raises(ValueError):
             category = Category('test name'*100, 'test description')
 
-    def test_description_min_len(self):
-        name = 'N'
+    def test_description_is_description(self):
         description = ''
-        category = Category(name, description)
+        category = Category('N', description)
         assert category.description is description
 
     def test_description_not_none(self):
