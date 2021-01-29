@@ -5,10 +5,10 @@ import pytest
 
 class TestModels:
     @pytest.mark.parametrize("name, description", [
-                                ('test name', 'test description'),
-                                ('t', ''),
-                                ('t'*100, 't'*200)
-                            ])
+        ('test name', 'test description'),
+        ('t', ''),
+        ('t' * 100, 't' * 200)
+    ])
     def test_category_instance(self, name, description):
         test_instance = Category(name, description)
         assert isinstance(test_instance, Category)
@@ -22,10 +22,12 @@ class TestModels:
         assert test_instance.description is description
 
     @pytest.mark.parametrize("name", [
-                                        None, 5, 5.0, [1, 2, 3],
-                                        ('a', 'b', 'c'),
-                                        Category('name', 'description')
-                                    ])
+        None, 5, 5.0, [1, 2, 3],
+        ('a', 'b', 'c'),
+        Category('name', 'description'),
+        {'name': 'test name',
+         'description': 'test description'}
+    ])
     def test_name_not_instance_str(self, name):
         with pytest.raises(TypeError):
             Category(name, 'test description')
@@ -36,17 +38,19 @@ class TestModels:
 
     def test_name_too_big(self):
         with pytest.raises(ValueError):
-            Category('test name'*100, 'test description')
+            Category('test name' * 100, 'test description')
 
     @pytest.mark.parametrize("description", [
-                                        None, 5, 5.0, [1, 2, 3],
-                                        ('a', 'b', 'c'),
-                                        Category('name', 'description')
-                                    ])
+        None, 5, 5.0, [1, 2, 3],
+        ('a', 'b', 'c'),
+        Category('name', 'description'),
+        {'name': 'test name',
+         'description': 'test description'}
+    ])
     def test_description_not_instance_str(self, description):
         with pytest.raises(TypeError):
             Category('test name', description)
 
     def test_description_too_big(self):
         with pytest.raises(ValueError):
-            Category('test name', 'test description'*200)
+            Category('test name', 'test description' * 200)
