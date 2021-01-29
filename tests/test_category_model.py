@@ -17,9 +17,18 @@ class TestCategoryModel:
         assert isinstance(category, Category)
         assert isinstance(category, BaseModel)
 
-    def test_name_isinstance_str(self):
+    @pytest.mark.parametrize("name", [
+                                        None, 
+                                        5, 
+                                        5.0, 
+                                        [1, 2, 3],
+                                        ('a', 'b', 'c'),
+                                        Category('name', 'description'),
+                                        {"name":"name"}
+                                    ])
+    def test_name_not_instance_str(self, name):
         with pytest.raises(TypeError):
-            category = Category(None, 'test description')
+            Category(name, 'test description')
 
     @pytest.mark.parametrize("name, description", [
         (10, 'Melhor time do Brasil'),
