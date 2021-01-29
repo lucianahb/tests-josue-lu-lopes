@@ -26,6 +26,6 @@ class Category(BaseModel):
     def validate_description(self, key, description):
         if not isinstance(description, str):
             raise TypeError('Description must be a string')
-        if len(description) > 150:
-            raise ValueError('Description is bigger than 150 characters')
+        if len(description) > 200:
+            raise ValueError('Description is bigger than 200 characters')
         return description
