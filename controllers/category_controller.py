@@ -7,7 +7,7 @@ class CategoryController:
         self.__dao = CategoryDao()
 
     def create(self, model: Category) -> Category:
-        self.__dao.save(model)
+        return self.__dao.save(model)
     
     def update(self, model: Category) -> Category:
         self.__dao.read_by_id(model.id_)
@@ -24,4 +24,3 @@ class CategoryController:
     
     def delete(self, model: Category) -> None:
         self.__dao.delete(model)
-        
