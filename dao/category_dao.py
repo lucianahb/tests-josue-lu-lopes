@@ -7,7 +7,7 @@ class CategoryDao:
             session.add(model)
             session.commit()
             session.refresh(model)
-        return model
+            return model
 
     def read_by_id(self, id_: int) -> Category:
         if isinstance(id_, int):
@@ -15,7 +15,7 @@ class CategoryDao:
                 result = session.query(Category).filter_by(id_=id_).first()
             return result
         else:
-            raise TypeError('Id mut be integer')
+            raise TypeError('Id must be integer')
 
     def read_all(self) -> list:
         with Session() as session:
