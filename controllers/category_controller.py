@@ -10,7 +10,7 @@ class CategoryController:
         self.__dao.save(model)
     
     def update(self, model: Category) -> Category:
-        self.__dao.read_by_id(model.id)
+        self.__dao.read_by_id(model.id_)
         return self.__dao.save(model)
     
     def read_by_id(self, id_:int) -> Category:

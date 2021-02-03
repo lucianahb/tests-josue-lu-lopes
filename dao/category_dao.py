@@ -12,7 +12,7 @@ class CategoryDao:
     def read_by_id(self, id_: int) -> Category:
         if isinstance(id_, int):
             with Session() as session:
-                result = session.query(Category).filter_by(id=id_).first()
+                result = session.query(Category).filter_by(id_=id_).first()
             return result
         else:
             raise TypeError('Id mut be integer')
