@@ -1,4 +1,7 @@
-from models.categories import Category
+import sys
+sys.path.append('.')
+
+from models.category import Category
 from models.base_model import BaseModel
 import pytest
 

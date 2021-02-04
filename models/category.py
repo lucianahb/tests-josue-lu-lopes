@@ -5,11 +5,11 @@ from utils.validators import ValidateModel
 
 
 class Category(BaseModel):
-    __tablename__ = "CATEGORIES"
+    __tablename__ = "CATEGORY"
     name = Column('name', String(length=100), nullable=False)
-    description = Column('description', String(length=200), nullable=True)
+    description = Column('description', String(length=255), nullable=True)
 
-    def __init__(self, name: str, description: str) -> None:
+    def __init__(self, name: str, description: str = None) -> None:
         self.name = name
         self.description = description
 
