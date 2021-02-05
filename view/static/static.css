@@ -1,14 +1,41 @@
 body {
     background-color: #0c29d0;
-    font-family: Arial, Helvetica, sans-serif;}
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 100%;
+}
 
 h1 {
     text-align: center;
     color: #fff;
 }
 
-.container {
-    background-color: white;
+table {
+    margin: 0 3em;
+}
+
+table td, table th {
+    padding: 0.5em;
+}
+
+table tr:nth-child(even){
+    background-color: #e0dfdf;
+}
+
+table tr:nth-child(odd){
+    background-color: #fff;
+}
+
+table tr:hover {
+    background-color: #14E39F;
+}
+
+th {
+    padding-top: 12px 0;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #14E39F;
 }
 
 ul {
@@ -38,17 +65,23 @@ a {
     border-radius: 5rem;
 }
 
-.back:hover, .create:hover, th {
+.back:hover, .create:hover {
     background-color: #14E39F;
-    padding: 1em;
-    border-bottom: 1px #14E39F;
 }
 
 li>a, .action:hover {
-    color: #14E39F;
+    color: #0c29d0;
 }
 
 form {
     color: #fff;
     margin: 2em 0;
+}
+
+nav {
+    background-color: #14E39F;
+    box-sizing: border-box;
+    padding: 0.5em;
+    width: 100%;
+    font-weight: bold;
 }

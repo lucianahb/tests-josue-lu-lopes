@@ -3,34 +3,32 @@
 {% block body %}
    <h1>Category</h1>
   
-   <div class="buttons">
+    <div class="buttons">
         <a class="back" href="/">Back</a>
         <a class="create" href="/category/create">Create Category</a>
-   </div>
+    </div>
 
-   <div class="container">
-       <table>
-           <thead>
-               <tr>
-                   <th>Name</th>
-                   <th>Description</th>
-                   <th>Actions</th>
-               </tr>
-           </thead>
-           <tbody>
-               {% for category in categories %}
-               <tr>
-                   <td>{{ category.name }}</td>
-                   <td>{{ category.description }}</td>
-                   <td>
-                    <a class="action" href="/category/delete/{{ category.id_ }}">Delete</a>
-                    <a class="action" href="/category/update/{{ category.id_ }}">Update</a>
-                </td>
-               </tr>
-               {% endfor %}
-           </tbody>
-       </table>
-   </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>{{ category.description }}</td>
+                <td>
+                <a class="action" href="/category/delete/{{ category.id_ }}">Delete</a>
+                <a class="action" href="/category/update/{{ category.id_ }}">Update</a>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
  
  
 {% endblock %}
