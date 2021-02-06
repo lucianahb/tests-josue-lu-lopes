@@ -24,4 +24,4 @@ class Category(BaseModel):
     def validate_description(self, key, description):
         v = ValidateModel()
         description = v.validate_type(description, str, key)
-        return v.validate_len(description, 200, key)
+        return v.validate_len(description, 255, key)
