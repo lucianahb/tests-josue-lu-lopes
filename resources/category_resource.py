@@ -3,6 +3,7 @@ from resources.base_resource import BaseResource
 from models.category import Category
 from dao.category_dao import CategoryDao
 
+
 class CategoryResource(BaseResource):
     fields = {
         "id_": fields.Integer,
@@ -17,7 +18,7 @@ class CategoryResource(BaseResource):
         super().__init__(self.__dao, self.__model_type)
 
     @marshal_with(fields)
-    def get(self, id = None):
+    def get(self, id=None):
         return super().get(id)
 
     @marshal_with(fields)

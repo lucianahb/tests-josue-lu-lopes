@@ -9,19 +9,16 @@ class BaseResource(Resource):
         self.__dao = dao
         self.__model_type = model_type
 
-
     def get(self, identifier=None):
         if identifier:
             return self.__dao.read_by_id(identifier)
         return self.__dao.read_all()
-
 
     def post(self):
         data = request.json
         model = self.__model_type(**data)
         self.__dao.save(model)
         return model, 201
-
 
     def put(self, identifier):
         data = request.json
@@ -31,7 +28,6 @@ class BaseResource(Resource):
                 setattr(model, key, value)
             return self.__dao.save(model)
         return None, 404
-
 
     def delete(self, identifier):
         model = self.__dao.read_by_id(identifier)

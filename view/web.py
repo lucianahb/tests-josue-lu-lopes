@@ -28,9 +28,9 @@ def create_category():
         description = request.form.get('description')
         new_category = Category(name, description)
         controller.create(new_category)
-        return redirect('/category')       
+        return redirect('/category')
     return render_template('create_category.html')
-  
+
 
 @app.route('/category/update', methods=['POST'])
 def category_update():
@@ -53,5 +53,6 @@ def delete_category(id):
     category = controller.read_by_id(id)
     controller.delete(category)
     return redirect('/category')
+
 
 app.run(debug=True)

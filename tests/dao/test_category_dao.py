@@ -39,12 +39,10 @@ def test_update():
     model = Category('Category Test', 'Test Description')
     category_dao = CategoryDao()
     model = category_dao.save(model)
-
     if isinstance(model, Category):
         old_name = model.name
         model.name = 'New name test'
     category_dao.save(model)
-
     if isinstance(model, Category):
         assert old_name != model.name
     category_dao.delete(model)
