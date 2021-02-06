@@ -29,10 +29,10 @@ def test_delete():
     model = Category('Category Test', 'Test Description')
     category_dao = CategoryDao()
     model = category_dao.save(model)
-    id_ = model.id_
+    id = model.id_
     category_dao.delete(model)
     with pytest.raises(Exception):
-        test_read_by_id(id_)
+        test_read_by_id(id)
 
 
 def test_update():
