@@ -21,7 +21,7 @@ def test_read_all():
 
 def test_read_by_id():
     category_dao = CategoryDao()
-    id_ = 42
+    id_ = 376
     assert isinstance(category_dao.read_by_id(id_), Category)
 
 
