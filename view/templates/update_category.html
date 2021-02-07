@@ -1,8 +1,7 @@
 {% extends 'template.html' %}
 {% block body %}
     <form action="/category/update" method="post">
-        <label for="name">ID: </label>
-        <input type="text" name="id" id="id" value="{{category.id_}}" readonly>
+        <input type="hidden" name="id" id="id" value="{{category.id_}}" hidden>
 
         <label for="name">Name</label>
         <input type="text" name="name" id="name" value="{{ category.name }}">
