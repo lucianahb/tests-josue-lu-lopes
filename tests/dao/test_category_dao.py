@@ -21,7 +21,7 @@ def test_read_all():
 
 def test_read_by_id():
     category_dao = CategoryDao()
-    id_ = 42
+    id_ = 376
     assert isinstance(category_dao.read_by_id(id_), Category)
 
 
@@ -29,22 +29,20 @@ def test_delete():
     model = Category('Category Test', 'Test Description')
     category_dao = CategoryDao()
     model = category_dao.save(model)
-    id_ = model.id_
+    id = model.id_
     category_dao.delete(model)
     with pytest.raises(Exception):
-        test_read_by_id(id_)
+        test_read_by_id(id)
 
 
 def test_update():
     model = Category('Category Test', 'Test Description')
     category_dao = CategoryDao()
     model = category_dao.save(model)
-
     if isinstance(model, Category):
         old_name = model.name
         model.name = 'New name test'
     category_dao.save(model)
-
     if isinstance(model, Category):
         assert old_name != model.name
     category_dao.delete(model)

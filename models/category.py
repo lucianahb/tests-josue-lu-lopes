@@ -9,7 +9,7 @@ class Category(BaseModel):
     name = Column('name', String(length=100), nullable=False)
     description = Column('description', String(length=255), nullable=True)
 
-    def __init__(self, name: str, description: str = None) -> None:
+    def __init__(self, name: str, description: str=None) -> None:
         self.name = name
         self.description = description
 
@@ -24,4 +24,4 @@ class Category(BaseModel):
     def validate_description(self, key, description):
         v = ValidateModel()
         description = v.validate_type(description, str, key)
-        return v.validate_len(description, 200, key)
+        return v.validate_len(description, 255, key)
